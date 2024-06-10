@@ -1,6 +1,5 @@
 package co.za.openwindow.theoryloginscreen.screens
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -35,12 +34,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
@@ -51,7 +47,6 @@ import co.za.openwindow.theoryloginscreen.ui.theme.Purple
 import co.za.openwindow.theoryloginscreen.ui.theme.White
 import co.za.openwindow.theoryloginscreen.ui.theme.Yellow
 import co.za.openwindow.theoryloginscreen.ui.theme.bebasNeueFontFamily
-import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 
 @Composable
@@ -87,7 +82,7 @@ fun LoginScreen(
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Top,
-                modifier = Modifier.padding(horizontal = 35.dp).offset(y=-55.dp)
+                modifier = Modifier.padding(horizontal = 35.dp).offset(y=(-55).dp)
             ) {
                 Box(
                     modifier = Modifier
@@ -109,7 +104,7 @@ fun LoginScreen(
                     "LOGIN",
                     fontSize = 56.sp,
                     fontWeight = FontWeight.SemiBold,
-                    color = Color.White,
+                    color = White,
                     lineHeight = 40.sp,
                     fontFamily = bebasNeueFontFamily,
                     letterSpacing = 0.07.em
@@ -119,18 +114,17 @@ fun LoginScreen(
                     "Explore the galaxy",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.SemiBold,
-                    color = Color.White,
+                    color = White,
                     lineHeight = 40.sp,
                     modifier = Modifier.padding(5.dp)
                 )
 
-                Column() {
+                Column {
 
                     Text(
                         "Your email",
                         fontSize = 16.sp,
-                        fontWeight = FontWeight.Normal,
-                        color = Color.White,
+                        color = White,
                         lineHeight = 40.sp,
                         modifier = Modifier.padding(15.dp)
                     )
@@ -139,7 +133,6 @@ fun LoginScreen(
                     TextField(
                         value = emailText,
                         onValueChange = { emailText = it },
-                        label = { Text("Email", color = Color.White) },
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                         modifier = Modifier
                             .fillMaxWidth()
@@ -151,6 +144,8 @@ fun LoginScreen(
                             unfocusedIndicatorColor = Color.Transparent,
                             unfocusedContainerColor = Dark,
                             focusedContainerColor = Dark,
+                            focusedTextColor = White,
+                            unfocusedTextColor = White
                         ),
                         singleLine = true,
                     )
@@ -160,7 +155,7 @@ fun LoginScreen(
 
                 Spacer(modifier = Modifier.height(10.dp))
 
-                Column() {
+                Column {
 
                     Text(
                         "Your password",
@@ -174,7 +169,6 @@ fun LoginScreen(
                     TextField(
                         value = passwordText,
                         onValueChange = { passwordText = it },
-                        label = { Text("Password", color = Color.White) },
                         visualTransformation = PasswordVisualTransformation(),
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                         modifier = Modifier
@@ -187,6 +181,9 @@ fun LoginScreen(
                             unfocusedIndicatorColor = Color.Transparent,
                             unfocusedContainerColor = Dark,
                             focusedContainerColor = Dark,
+                            focusedTextColor = White,
+                            unfocusedTextColor = White
+
                         ),
                         singleLine = true,
                     )
@@ -203,9 +200,9 @@ fun LoginScreen(
                             checked = rememberMeState.value,
                             onCheckedChange = { rememberMeState.value = it },
                             colors = CheckboxDefaults.colors(
-                                checkedColor = Color.White,
-                                uncheckedColor = Color.White,
-                                checkmarkColor = Dark
+                                checkedColor = White,
+                                uncheckedColor = White,
+                                checkmarkColor = White
                             )
                         )
                         Text(
